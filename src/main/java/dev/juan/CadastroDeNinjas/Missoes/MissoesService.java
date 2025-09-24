@@ -1,6 +1,7 @@
 package dev.juan.CadastroDeNinjas.Missoes;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,5 +29,13 @@ public class MissoesService {
 
     public void deletarMissaoPorId(Long id) {
         missoesRepository.deleteById(id);
+    }
+
+    public MissoesModel atualizarMissaoPorid(Long id, MissoesModel missaoatualizada) {
+        if (missoesRepository.existsById(id)) {
+            missaoatualizada.setId(id);
+            return missoesRepository.save(missaoatualizada);
+        }
+        return null;
     }
 }
