@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table (name ="tb_missoes")
+@Table (name ="missoes")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -21,7 +21,7 @@ public class MissoesModel {
     @Column (name = "id")
     private Long id;
 
-    @Column (name = "nome")
+    @Column (name = "nome", nullable = false)
     private String nome;
 
     @Column (name = "dificuldade")
